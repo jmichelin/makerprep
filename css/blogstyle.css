@@ -1,0 +1,44 @@
+#mainContainer {
+   background-color: orange;
+   margin: auto 0;
+   max-width: 960px;
+}
+#header {
+  background-color: purple;
+}
+#nav {
+  background-color: yellow;
+}
+#content {
+  background-color: tan;
+}
+#footer {
+  background-color: green;
+}
+.menuBar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.menuItem {
+  display: inline;
+}
+.active {
+  font-weight: bold;
+  color: blue;
+}
+.active:visited {
+  font-weight: bold;
+  color: blue;
+}
+.important {
+  color: red;
+  font-weight: bold;
+  font-family: "Times New Roman", Georgia, Serif;
+  background-color: yellow;
+}
+.nice-to-know {
+  color: grey;
+  font-weight: lighter;
+  background-color: cyan;
+}

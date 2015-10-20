@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Forms Lesson</title>
+</head>
+<body>
+  <form action="http://formspree.io/jmichelinphone@gmail.com" method="GET">
+    name: <input type="text" name="text">
+    password: <input type="password" name="password">
+    email: <input type="email" name="email">
+    color: <input type="color" name="color">
+    date: <input type="date" name="date">
+    datetime: <input type="datetime" name="datetime">
+    datetime-local: <input type="datetime-local" name="datetime-local">
+    file: <input type="file" name="file">
+    email: <input type="email" name="email">
+    month: <input type="month" name="month">
+    number: <input type="number" name="number">
+    range: <input type="range" name="range">
+    search: <input type="search" name="search">
+    tel: <input type="tel" name="tel">
+    time: <input type="time" name="time">
+    url: <input type="url" name="url">
+    week: <input type="week" name="week">
+    <input type="submit">
+  </form><br><br>
+  <hr>contact form<hr>
+  <form action="http://formspree.io/jmichelinphone@gmail.com" method="POST">
+    Tell me about yourself:<br>
+    name: <input type="text" name="text"><br>
+    email: <input type="email" name="email"><br>
+    What's your deal?<br><textarea name="introduce" id="" cols="30" rows="10"></textarea><br>
+    Place a check if you don't mind goats.<input type="checkbox" name="goats" id=""><br>
+    Do you like eggs? <input type="radio" name="eggs" id="">Yes<input type="radio" name="eggs" id="">No<br>
+    How much do you like eggs?<input type="range" name="eggs" id="" min="0" max="100"><br>
+    What is your prefered egg size?<select name="eggSizes" id="">
+      <option value="small">small</option>
+      <option value="regular">regular</option>
+      <option value="large">large</option>
+      <option value="extralarge">extralarge</option>
+      <option value="jumbo">jumbo</option>
+    </select>
+    <!--Ask them to fill in a "get to know you" survey using dropdown menus, checkboxes, radio buttons, and various other form elements.--><br>
+    <input type="submit">
+  </form>
+
+</body>
+</html>

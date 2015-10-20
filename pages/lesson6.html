@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<style>
+body {
+  margin: 0 auto;
+  width:960px;
+}
+#madLibForm {
+
+}
+#madLibText {
+
+}
+  /*
+  Noun <input type="text" name="" id="noun1"><br>
+  Noun <input type="text" name="" id="noun2"><br>
+  Noun <input type="text" name="" id="noun3"><br>
+  JavaScript Phrase <input type="text" name="" id="javaScriptPhrase1"><br>
+  First Name <input type="text" name="" id="firstName1"><br>
+  First Name <input type="text" name="" id="firstName2"><br>
+  Famous Nerd <input type="text" name="" id="famousNerd"><br>
+  Famous Jerk <input type="text" name="" id="famousJerk"><br>
+  Verb <input type="text" name="" id="verb1"><br>
+  Verb <input type="text" name="" id="verb2"><br>
+  Verb <input type="text" name="" id="verb3"><br>
+  Number <input type="text" name="" id="number1"><br>
+  Number <input type="text" name="" id="number2"><br>
+  Number <input type="text" name="" id="number3"><br>
+  <button type="submit" onclick="showMadLib()">Get Mad!</button>
+  */
+
+</style>
+<script>
+  showMadLib() {
+
+  }
+</script>
+</head>
+<body>
+  <div><p>Collaboratively administrate empowered markets via plug-and-play networks. Dynamically procrastinate B2C users </p><p> after installed base benefits. Dramatically visualize customer directed convergence without revolutionary ROI.</p></div>
+  <div id="primary"><p>Icing jelly-o halvah jelly. Biscuit lollipop dessert jujubes pie pudding. Marzipan cake wafer danish icing sweet lollipop sweet roll cheesecake. Cake lemon drops oat cake chocolate cupcake muffin sweet roll dessert. Pastry jelly beans carrot cake chocolate bar croissant jujubes lollipop. Caramels chupa chups macaroon candy canes chocolate cake jujubes tart croissant. Chocolate bar ice cream apple pie jujubes apple pie jelly. Icing lollipop pudding. Marzipan danish jelly-o muffin oat cake cheesecake ice cream. Chocolate sesame snaps sweet soufflé pastry. Macaroon marshmallow toffee sesame snaps icing. Tiramisu jujubes chocolate brownie brownie marzipan croissant toffee croissant. Danish cheesecake chocolate wafer bear claw danish cookie biscuit.</p></div>
+
+  <div class="important">Completely synergize resource sucking relationships via premier niche markets. Professionally cultivate one-to-one customer service with robust ideas. Dynamically innovate resource-leveling customer service for state of the art customer service.</div>
+
+  <div id="nav">
+    <p class="important">Interactively procrastinate high-payoff content without backward-compatible data. Quickly cultivate optimal processes and tactical architectures. Completely iterate covalent strategic theme areas via accurate e-markets.</p>
+    <ol>
+      <li>Proactively envisioned multimedia based expertise and cross-media growth strategies. Seamlessly visualize quality intellectual capital without superior collaboration and idea-sharing. Holistically pontificate installed base portals after maintainable products.</li>
+      <li>Objectively innovate empowered manufactured products whereas parallel platforms. Holisticly predominate extensible testing procedures for reliable supply chains. Dramatically engage top-line web services vis-a-vis cutting-edge deliverables.</li>
+      <li>Phosfluorescently engage worldwide methodologies with web-enabled technology. Interactively coordinate proactive e-commerce via process-centric "outside the box" thinking. Completely pursue scalable customer service through sustainable potentialities.</li>
+      <li>Collaboratively administrate turnkey channels whereas virtual e-tailers. Objectively seize scalable metrics whereas proactive e-services. Seamlessly empower fully researched growth strategies and interoperable internal or "organic" sources.</li>
+    </ol>
+  </div>
+
+  <div id="main">
+    <h1>Globally incubate standards compliant channels before scalable benefits.</h1>
+
+    <p>Credibly reintermediate backend ideas for cross-platform models. Continually reintermediate integrated processes through technically sound intellectual capital. Holistically foster superior methodologies without market-driven best practices.</p>
+  </div>
+  <div>
+    <h3>Do This</h3>
+    <ul>
+      <li>  <code>&gt; document.body;</code> &lt;-- Don't get confused, this is just a shortcut for: `document.querySelector('body')</li>
+      <li>  <code>&gt; document.querySelector('p');</code></li>
+      <li>  <code>&gt; document.querySelector('#primary');</code></li>
+      <li>  <code>&gt; document.querySelector('.important');</code></li>
+      <li>  <code>&gt; document.querySelector('p.important').textContent;</code></li>
+      <li>  <code>&gt; document.querySelector('#nav ol li').textContent;</code></li>
+      <li>  <code>&gt; document.querySelector('h1, p').textContent = "I'm on the page!";</code></li>
+    </ul>
+  </div>
+  <div id="greeting"></div>
+
+
+  <script>
+  var visitorName = prompt("What is your name?");
+  var visitorHometown = prompt("What is your hometown?");
+  var welcomeMessage = "This is a welcome message, " + visitorName + "<span id=\"hometown\"></span>";
+  var visitorHometownMessage = " it must be nice to have a visitor from " + visitorHometown;
+  document.querySelector('#greeting').innerHTML = welcomeMessage;
+  document.querySelector('#hometown').textContent = visitorHometownMessage;
+
+  </script>
+<h3>Exercise 9:Shuffle</h3>
+<div id="source">This is source</div>
+<div id="destination">This is destination</div>
+<hr>
+<div id="swapOne">Value of SwapOne</div>
+<div id="swapTwo">Value of SwapTwo</div>
+<script>
+var sourceContent = document.querySelector('#source').textContent;
+document.querySelector('#destination').textContent = sourceContent;
+console.log(document.querySelector('#swapOne').textContent);
+var swapOneHolder = document.querySelector('#swapOne').textContent;  //store original value of swapOne
+document.querySelector('#swapOne').textContent = document.querySelector('#swapTwo').textContent; //assign value of swapOne to swapTwo
+document.querySelector('#swapTwo').textContent = swapOneHolder; //assign swapTwo to original value of swapOne
+
+</script>
+<code>Create a div with an id of source, and another one with the id of destination, each with some text inside.
+Fetch the textContent of source and save it as a variable.
+Use the variable to place that text in the destination div
+Create divs with a ids of swap_1 and swap_2.
+How can we swap the textContent of the two divs? Hint: If youve never encountered swapping in programming before, think about how a third variable might be useful here.
+</code>
+<div id="madLibFormContainer">
+  <form action="lesson6.html" id="madLibForm">
+    Noun <input type="text" name="" id="noun1"><br>
+    Noun <input type="text" name="" id="noun2"><br>
+    Noun <input type="text" name="" id="noun3"><br>
+    JavaScript Phrase <input type="text" name="" id="javaScriptPhrase1"><br>
+    First Name <input type="text" name="" id="firstName1"><br>
+    First Name <input type="text" name="" id="firstName2"><br>
+    Famous Nerd <input type="text" name="" id="famousNerd"><br>
+    Famous Jerk <input type="text" name="" id="famousJerk"><br>
+    Verb <input type="text" name="" id="verb1"><br>
+    Verb <input type="text" name="" id="verb2"><br>
+    Verb <input type="text" name="" id="verb3"><br>
+    Number <input type="text" name="" id="number1"><br>
+    Number <input type="text" name="" id="number2"><br>
+    Number <input type="text" name="" id="number3"><br>
+    <button type="submit" onclick="showMadLib()">Get Mad!</button>
+  </form>
+</div>
+<div id="madLibText">
+ <p>We have all come to Makers Prep for the same reason, to <span id="verb1"></span>! The very first student here was of course the famous <span id="famousNerd"></span> while <span id="famousJerk"></span> went to that <em>other</em> school. Everyone has a favorite fellow student, most people say <span id="firstName1"></span> is the best!</p>
+ <p>Usually after <span id="number1"></span> cups of coffee <span id="firstName2"></span> is bouncing off the walls, thankfully after <span id="number2"></span> <span id="noun1"></span>s to the head things calm down. Maintaining focus and keeping your mind on <span id="noun2"></span> and not <span id="verb2"></span>ing a <span id="noun3"></span></p>
+ <p>When Christoph is explaining <span id="javaScriptPhrase1"></span> and asks Gabriel if he has any questions the pause of <span id="number3"></span> seconds says "No, you're doing great!". The whole class <span id="verb3"></span> into laughter!</p>
+</div>
+</body>
+</html>

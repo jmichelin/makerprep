@@ -1,0 +1,34 @@
+body {
+  background: url(http://www.animateit.net/data/media/june2010/animated_60.gif);
+}
+div {
+  margin: 0 auto;
+}
+img {
+    padding:5px;
+    height: 100px;
+  }
+  img:hover {
+    padding: 5px;
+    height: 400px;
+  }
+.first_paragraph {
+  background: #B8D321;
+}
+#second_paragraph {
+  background: url(http://i289.photobucket.com/albums/ll229/lolipop00185/flashing_colors.gif);
+}
+#third_paragraph {
+  background: red;
+}
+#fourth_paragraph {
+  background: rgba(43,19,200,1.00);
+  text-align: left;
+  vertical-align: text-top;
+}
+#fifth_paragraph {
+  background: #B8D321;
+}
+#sixth_paragraph {
+  background: olivegreen;
+}

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lesson 10 Functions</title>
+</head>
+<body>
+  <h3>Exercise 1</h3>
+  <pre>
+    Define a function <em>logTheDate()</em> that console.logs a simple message and the time: new Date()
+    Invoke your function multiple times from the console.
+    Place your function in a script tag in an HTML document.
+    Invoke it multiple times in the script tag.
+    Open the HTML document in your browser and hit reload a few times. (.dataLogArea)
+    Define a function that generates an enthusiastic string of text and alerts it to the screen.
+    Invoke it a few dozen times from the console.
+    <div class="dateLogArea"></div>
+  </pre>
+  <h3>Exercise 2 Random Number</h3>
+  <div class="returningValuesArea">saying_generator</div>
+  <pre>Exercise 2:
+    <div class="randomNumberArea">should be here!</div>
+    In a script tag, define a new function called random_number
+    random_number should a return a random number between 1 and 10.
+    Save the return value to a variable called new_random_number
+    console log new_random_number. Note: There should not be a console.log inside of your function definition.
+    Refactor your code so that it doesn't need the new_random_number variable
+    Run your code inside a while loop so that it generates 10 random numbers
+    Hint: Remember, the formula for generating random number in javascript is:
+
+    Math.floor([minimum_value] + Math.random() * [maximum_value - minimum_value + 1]);</pre>
+
+    Value of Nested Functions is: <div class="valueOfNestedFunctions"></div> <em>simpleMath(simpleMath(simpleMath(random_number(1,100),5,"tripler"), simpleMath(random_number(1,300),5,"multiply"), "divide"),simpleMath(simpleMath(random_number(1,100),5,"tripler"), simpleMath(random_number(1,300),5,"multiply"), "multiply"), "remainder");</em>
+    Value of Factoral of n is: <div class="valueOfFactoralN"></div>
+    <script>
+    function logTheDate() {
+      console.log();
+      document.querySelector('.dateLogArea').textContent += "This is the time: " + new Date();
+    }
+    for(i=0; i < 24; i++) {
+      logTheDate();
+    }
+    //
+    //returning values
+    //
+    var greeter = function () {
+      return 'Hello';
+    };
+
+    // saving the return value
+    var greeting = greeter();
+
+    // what value does the variable greeting hold?
+
+    // using the return value to compose larger expressions
+    console.log(greeting + ", nice to meet you.");
+
+    // what's the difference here?
+    console.log(greeter() + ", nice to meet you.");
+    var saying_generator = function () {
+      var phrase = "Heey, " + "it's the " + " Fonz.";
+      return phrase;
+    }
+    var saying = saying_generator();
+    //display
+    document.querySelector('.returningValuesArea').textContent += saying;
+    var broken_saying_generator = function() {
+      var phrase = "Heeey, " + "it's the " + " Fonz.";
+      phrase;
+    }
+    var random_number = function(minimum_value, maximum_value) {
+      //document.querySelector('.randomNumberArea').textContent = "";
+      return Math.floor(Math.random() * (maximum_value - minimum_value + 1)) + minimum_value;
+    }
+    for (i=0; i < 10; i++) {
+      currentNum = random_number(1,10);
+      document.querySelector('.randomNumberArea').textContent += currentNum;
+    }
+    var simpleMath = function(num1, num2, mathOperation) {
+      //console.log(mathOperation);
+      switch (mathOperation) {
+        case "tripler":
+        return num1 * 3;
+        case "multiply":
+        return num1 * num2;
+        case "divide":
+        return num1 / num2;
+        case "remainder":
+        return num1 % num2;
+        default:
+        return "I don't know that operator";
+      }
+    }
+    document.querySelector(".valueOfNestedFunctions").textContent = simpleMath(simpleMath(simpleMath(random_number(1,100),5,"tripler"), simpleMath(random_number(1,300),5,"multiply"), "divide"),simpleMath(simpleMath(random_number(1,100),5,"tripler"), simpleMath(random_number(1,300),5,"multiply"), "multiply"), "remainder");
+    //
+    //
+    //
+    function factoral_of_n(num1) {
+      factoral = "1";
+      for (i=num1; i > 0; i--) {
+        factoral *= i;
+      }
+      document.querySelector(".valueOfFactoralN").textContent = factoral;
+    }
+    factoral_of_n(5);
+
+
+    function* idMaker(){
+      var index = 0;
+      while(true)
+      yield index++;
+    }
+
+    var gen = idMaker(); // "Generator { }"
+
+    console.log(gen.next().value); // 0
+    console.log(gen.next().value); // 1
+    console.log(gen.next().value); // 2
+    // ...
+    function* fibonacci() {
+      var a = yield 1;
+      yield a * 2;
+    }
+
+    var it = fibonacci();
+    console.log(it);          // "Generator {  }"
+    console.log(it.next());   // 1
+    console.log(it.send(10)); // 20
+    console.log(it.close());  // undefined
+    console.log(it.next());   // throws StopIteration (as the generator is now closed)
+    </script>
+  </body>
+  </html>

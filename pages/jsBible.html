@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+  <meta charset="utf-8">
+  <title>Javascript Bible</title>
+<script>
+</script>
+</head>
+
+<body>
+  <!-- this template gives you a link to bootstrap's css, as well as script tag links to jquery and bootstrap's javascript. all you need to do is start using boostrap components in the body -->
+  <div class="container">
+    <!-- start of container -->
+    <div class="page-header">
+      <h1>Javascript Bible <small>Because the other bible can't help me</small></h1>
+    </div>
+    <!-- Start of Topic Section -->
+    <div class="panel panel-default">
+      <em>example</em>
+      <div class="panel-heading">
+        <h3 class="panel-title">Item Topic</h3>
+      </div>
+      <div class="panel-body">
+        <pre>
+          example code goes here
+        </pre>
+      </div>
+    </div>
+    <!-- End of Topic Section -->
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">document.querySelector</h3>
+      </div>
+      <div class="panel-body">
+        <pre>
+          var userName = prompt("Username?");
+          var welcomeMessage = document.querySelector(".welcome-message");
+          console.log(welcomeMessage);
+          welcomeMessage.textContent = "Welcome" + userName;
+          console.log(welcomeMessage);
+          &lt;div class="welcome-message"&gt;welcomeMessage.textContent&lt;/div&gt;
+        </pre>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">innerHTML</h3>
+      </div>
+      <div class="panel-body">
+        <pre>
+          <pre>
+            var userName = prompt("Username?");
+            var welcomeMessage = document.querySelector(".welcome-message");
+            console.log(welcomeMessage);
+            welcomeMessage.innerHTML = "Welcome \"loverly\"" + userName;
+            console.log(welcomeMessage);
+            &lt;div class="welcome-message"&gt;welcomeMessage.textContent&lt;/div&gt;
+          </pre>
+        </pre>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">parseInt();</h3>
+      </div>
+      <div class="panel-body">
+        <pre>
+          var x = 34;
+          var y = parseInt("34");
+          //typeof x = "string"
+          //typeof y = int
+        </pre>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Variables</h3>
+      </div>
+      <div class="panel-body">
+        <pre>
+          data types:
+          String (denoted by quotation marks)
+          Number
+          Boolean (true or false)
+          Array []
+          Object {}
+        </pre>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Declaring Variables</h3>
+        <h4 class="panel-title">variables can be assigned to other variables</h4>
+      </div>
+      <div class="panel-body">
+        <pre>
+          var x = 23;
+          var name = "Brandy";
+          var var1, var2, var3;
+          var myName = name;
+          var age = x;
+        </pre>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">concatination vs addition</h3>
+      </div>
+      <div class="panel-body">
+        <pre>
+          var firstName = "Jacob";
+          var lastName = "Hansen";
+          console.log(firstName + " " + lastName); // Jacob Hansen
+
+          console.log(9 + 12); // 21
+          console.log("9" + 12); // 912
+          console.log("9" * 12); // NaN
+        </pre>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">mathematical operators</h3>
+      </div>
+      <div class="panel-body">
+        <pre>
+          x = x + 12; /* is the same as: */ x += 12;
+          x = x - 12; /* is the same as: */ x -= 12;
+          x = x * 12; /* is the same as: */ x *= 12;
+          x = x / 12; /* is the same as: */ x /= 12;
+        </pre>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">to increment/decrement a number/variable by 1:</h3>
+        <h3 class="panel-title">if the `++` or `--` are before the variable then it adds/subtracts 1 BEFORE it is used</h3>
+      </div>
+      <div class="panel-body">
+        <pre>
+          x++;
+          x--;
+          ++x;
+          --x;
+        </pre>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">to `escape` use backslash</h3>
+      </div>
+      <div class="panel-body">
+        <pre>
+        console.log("This text\'s quotes will \"display\""); // This text's quotes will "display"
+        </pre>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">convert numbers to strings and vice versa</h3>
+      </div>
+      <div class="panel-body">
+        <pre>
+          var age = "29";
+          var numberAge = parseInt(age);
+          var numberAge = Number(age);
+          // String()
+          var stringAge = String(numberAge);
+        </pre>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Popup Boxes:</h3>
+      </div>
+      <div class="panel-body">
+        <pre>
+          alert("This will be alerted.");
+          // confirm returns a boolean
+          var accept = confirm("Do you agree you are above 18?");
+          // prompt returns a string
+          var userName = prompt("What is your name?");
+        </pre>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">DOM Manipulation</h3>
+      </div>
+      <div class="panel-body">
+        <pre>
+          // to 'get' element from DOM:
+          document.querySelector('*selector*');
+
+          // to set element from DOM to a JavaScript variable:
+          // in html:
+          // <div class="my-div">This is my div, there are many other like it but this one's mine!</div>
+          // in JavaScript:
+          var myDiv = document.querySelector('.my-div');
+
+          // to get/set text in `myDiv`:
+          myDiv.textContent = "This will overwrite previous content.";
+
+          // another way to do it with 'injecting' html:
+          myDiv.innerHTML = "<h1>This will overwrite previous content AND be a heading!</h1><p>Add as many tags as you like!</p>";
+
+          // you can also alter CSS
+          myDiv.style.backgroundColor = "purple";
+          myDiv.style.border = "2px solid blue";
+        </pre>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Conditional Logic Flo</h3>
+      </div>
+      <div class="panel-body">
+        <pre>
+          // predicates are anything that can be resolved to either `true` or `false`
+          // i.e. 5 > 1, "this" === "that", true
+
+          // syntax:
+          if (predicate) {
+            // code to run if predicate resolves to `true`
+          }
+
+          // example:
+          var password = "rubberduckie";
+          if (password === "rubberduckie") {
+
+          }
+        </pre>
+      </div>
+    </div>
+    <!-- end of container -->
+  </div>
+  <script src="https://code.jquery.com/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</body>
+
+</html>

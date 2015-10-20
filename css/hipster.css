@@ -1,0 +1,38 @@
+#container {
+  width: 960px;
+  margin 0 auto;
+  padding-top: 60px;
+}
+img {
+    float: left;
+    margin: 0 0 10px 10px;
+    height: 100px;
+}
+#content {
+  position:absolute;
+   width:600px;
+
+}
+#brand {
+
+}
+#sidebar {
+  width:350px;
+  margin-left:600px;
+}
+#nav {
+  position: fixed;
+  left: 300px;
+  top: 10px;
+  color: white;
+  background: black;
+}
+#nav li  {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: inline;
+}
+.clear {
+  clear: left;
+}

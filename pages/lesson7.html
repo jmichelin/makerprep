@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lesson 7</title>
+</head>
+<body>
+
+<div id="result"></div>
+<div id="message">An Eagle</div>
+<div id="output"></div>
+<img src="" alt="">
+<div id="greeting"></div>
+<script>
+//Excercise 4
+
+var hero, badGuy;
+if (hero === "strong") {
+  if (badGuy === "weak") {
+    console.log("Ah-ha, an easy victory!");
+  }
+  console.log("Let us battle to the death");
+}
+
+var response, imagePath, secretSaying = document.querySelector('#message').textContent;
+if (secretSaying === "An Eagle") {
+  response = "You shall pass";
+  imagePath = "http://img03.deviantart.net/0f4f/i/2012/109/8/d/open_door_png_by_glammgramma-d4wy185.png";
+} else {
+  response = "Release the Krakken";
+  imagePath = "http://zeldawiki.org/images/thumb/2/28/Link_Jump_Attack.png/200px-Link_Jump_Attack.png"
+}
+document.querySelector('#result').textContent = response;
+document.querySelector('img').src = imagePath;
+
+var userInput = prompt("what would you like to search for?"),
+    outputEl = document.querySelector('#output');
+
+if (userInput !== "happiness") {
+  if (!userInput) {
+    alert('Hey! Type something!!');
+  } else {
+    outputEl.textContent ="You're searching for the wrong thing"
+  }
+} else {
+  outputEl.textContent = "ahh, welcome enlightened one";
+}
+/*
+> !true;
+> !false;
+> !!false;
+> !!true;
+> !!"type coercion";
+> !!"all strings are 'truthy' except for...";
+> !!"";
+
+> true && true;
+
+> true && false;
+> false && true;
+> false && false;
+> true || true;
+> true || false;
+> false || true;
+> false || false;
+
+> true && "what does this evaluate to?";
+
+> false && "and this?";
+> true || "sigh, i'm not needed";
+> false || "default value";
+
+//exercise 6
+var name, age, gender, isMember, isThirsty, favoriteDrink;
+ if !isMember || age < 21 { thanks but scram }
+ else { welcome (gender === "male" ? 'Mr.' : 'Mrs.')}
+ favoriteDrink = favoriteDrink.toLowerCase();
+ if favoriteDrink.indexOf('coors') {get out}
+ else {good job}
+ */
+</script>
+</body>
+</html>
