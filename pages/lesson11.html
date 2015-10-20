@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lesson 11</title>
+</head>
+<body>
+  <pre>
+    Exercise 1:
+
+    Instantiate a new array and save it to a variable recipe
+    Use bracket notation to add the steps to create your favorite meal. Each index in the array should be a step.
+    Access the first step of your recipe using bracket notation.
+    Create variable called lastStep and assign to it a number which represents the index of the last item of your array
+    Access the last step of your recipe using the lastStep variable. Hint: It should look something like this: recipe[lastStep]
+  </pre>
+  <pre>
+    Exercise 2:
+
+    Instantiate a new array and save it to a variable bucketList
+    Use bracket notation with the assignment operator to add two life goals to your array.
+    .push() two goals onto the end of your list.
+    .unshift() two goals onto the beginning.
+    What is the array's length at this point?
+    .pop() off one goal and save it to a variable dyingWish
+    .shift() off one goal and save it to a variable doItNow
+    What is the array's length at this point?
+  </pre>
+  <pre>
+    Exercise 4:
+
+    Write a function reverser which will take an array of values as an input and return a new array of the same values in reverse order.
+    Inside reverser instantiate a new array reversedArray, use a for loop to populate it, then return it from the function.
+  </pre>
+  <script type="text/javascript">
+  //////////////
+  //exercise 4
+  //////////////
+  function reverser(initialArray) {
+    var reversedArray = [];
+    for (i=initialArray.length; i >= 0; i--) {
+      console.log(initialArray[i]);
+      reversedArray.push(initialArray[i]);
+
+    }
+    //reversedArray.shift();
+    console.log(reversedArray);
+  }
+  var orderedArray = ["a", "b", "c", "d", "e", "f"];
+  //console.log(orderedArray);
+  var newArray = reverser(orderedArray);
+  //console.log(newArray);
+  //////////////
+  //exercise 2
+  //////////////
+  var bucketList = ["eat sushi", "see the ocean", "make love to a dolphin"];
+  bucketList.push("ride the tardis", "fly to the moon");
+  bucketList.unshift("learn to code", "learn to fly");
+  var dyingWish = bucketList.pop();
+  var doItNow = bucketList.shift();
+  //console.log(bucketList.length);
+  ////////////////////
+  //exercise 1
+  ////////////////////
+  var recipe = ["wash hands", "cut food", "heat food"];
+  //console.log(recipe[0]);
+  lastStep = recipe.length;
+  //console.log(recipe[lastStep]);
+  </script>
+</body>
+</html>
