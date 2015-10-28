@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lesson 14 JQuery</title>
+</head>
+<body>
+  <h1>JQuery</h1>
+  <p><ul>
+    <li><a href="https://github.com/MakerPrepLA/makerprepla/tree/master/lessons/lesson14(jquery_effects)">Lesson Link</a></li>
+    <li><a href="http://oscarotero.com/jquery/">Cheat Sheet</a></li>
+  </ul></p>
+  <pre>
+    document.querySelector(".test").textContent vs $(".test").text("newText");
+    $(".test").css("height", "300px");
+    $(".test").css("{
+      backgroundColor: "blue", //note the collapsed hyphens instead of background-color its backgroundColor
+      border: "2px solid tomato"
+    }");
+    $(".test").attr("class", "newClass");
+    $(".newClass").html("<p> some html</p>");
+    $(".newClass").append("<p> some html</p>");
+    $(."newClass").fadeOut(3000);
+    $(."newClass").fadeIn(3000);
+    $(."newClass").fadeOut(3000).fadeIn(3000);
+
+    the way the this keyword works
+    $(".newClass").click(function(){
+      $(".newClass").css("background-color", "blue");
+      vs
+      $(this).css("background-color", "blue");
+    }))
+
+    $(function(){ //jquery goes here to make sure document is ready for it });
+  </pre>
+  <pre>
+    Exercise 1
+
+    Place the above in a fresh HTML document, just above the closing body tag. The first tag includes the jQuery libary and makes it available to the page. The second script uses it to do some work.
+
+    The $ Character
+
+    In the same way that window stores an object with a bunch of properties and methods (functions stored as properties on objects) related to the web page, jQuery uses the $ variable to store an object that contains the library's functionality. To see if jQuery is included on the page, type $ into the JavaScript console. You should see the following in reply:
+
+    function jQuery(selector, context)
+    $() is a function designed to accept a CSS selector (in string format) as input, and return all matching elements, but wrapped with jQuery super powers. The last part will make more sense in a bit.
+  </pre>
+  <pre>
+    Exercise 2
+
+    Referencing the documentation, Create an appropriate HTML document on which to try out the following:
+
+    $('body').css('background-color', 'red')
+    $('img').attr('src','http://i.imgur.com/nWGCwiE.gif')
+    <img src="" alt="">
+    $('h1').text('hello')
+    $('#notification').html('<div class="alert">Hold on! <b>an error</b> has occured!</div>')
+    $('.container').append("<p>What's the difference between <i>.append()</i> and .html()?</p>")
+    Note: None of the JQuery above will work as is, you need to create the HTML elements that match the query selectors above!
+
+    Hint: Ctr/Command + F is your friend for searching documentation.
+  </pre>
+  <div id="notification"></div>
+  <div class="container">some stuff</div>
+  <pre>
+    Exercise 3
+    in queens problem
+    <a href="lesson14.3.html">exercise 3</a>
+    Include the jQuery library in the file
+    Write an expression using jQuery that targets all h1 elements and makes their font-color blue
+    ... that targets the body element and turns its background red
+    ... that targets the element with the id "everything" and increases its font-size
+    ... that targets all elements with the class "holder" and adds a black border
+    ... that targets all li elements within ul elements and bold them
+    ... that targets p elements coming immediately after an h1 element and makes it green (Hint: Look up how to select HTML tags that are siblings)
+    ... that targets the element with the id of "secret" and changes its display property to 'none'
+    ... now change #secret's display property back to block
+    ... that targets the element with the id of "change-me" and changes its text to a new sentence
+    ... that appends new text to the end of the sentence in #change-me
+    ... that replaces #change-me's contents with two new paragraph tags with content included
+    ... that appends a new paragraph to #change-me
+    ... that targets the all li elements and changes their text to a new sentence
+    ... that targets the all li elements and appends new text to all of them
+    ... that targets the element with the id of "everything" and appends an ordered list with three list elements inside
+    Not sure exactly how to do something? Google and the documentation are your friend! JQuery is a very popular library, so you should be able to find plenty about it online. If you're still having trouble, don't hesitate to ask the instructor!
+  </pre>
+  <pre>
+    Exercise 4: Theme Changer
+
+    Create a web page that asks the user what color theme they'd like to view the web page in.
+    Keep asking until they enter a valid input. Hint: You can end the while loop manually using the break keyword, like this:
+
+    while(true) {
+      console.log('This loop will now end');
+      break;
+    }
+
+    Use jQuery to change the css of various elements on the page to use at least three shades of that color. e.g. If they choose "green", show a light green background, with green text and dark green borders
+    Use jQuery to display a message letting the user know what theme has been applied to the page
+    Have at least three color schemes for a visitor to choose from (green, blue and red?)
+    Place different images on the page depending on the theme
+    Extra Credit: Allow the user to enter in a hex value and programmatically create lighter and darker tones of that color.
+
+  </pre>
+  <script src="../js/jquery-1.11.2.min.js"></script>
+  <script>
+  $(function(){
+    //////////////////////
+    //exercise 5
+    /////////////////////
+    var bgcolor = prompt("gimme color");
+    $('body').css('background-color', bgcolor);
+
+    /////////////////////
+    //Exercise 1
+    ////////////////////
+    //$('body').text('hello?');
+
+    ///////////////////
+    //Exercise 2
+    //////////////////
+    $('body').css('background-color', 'tan');
+    $('img').attr('src','http://i.imgur.com/nWGCwiE.gif');
+    $('h1').text('hello');
+    $('#notification').html('<div class="alert">Hold on! <b>an error</b> has occured!</div>');
+    $('.container').append("<p>What's the difference between <i>.append()</i> and .html()?</p>")
+  });
+  </script>
+</body>
+</html>

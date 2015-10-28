@@ -1,0 +1,69 @@
+function each(collection, callback) {
+    if(Array.isArray(collection)){
+        for (var i = 0; i < collection.length; i++) {
+            callback(collection[i]);
+        }
+    } else {
+        for (var key in collection) {
+            callback(collection[key]);
+        }
+
+    }
+
+}
+
+function map(collection, callback){
+    var results = [];
+    each(collection, function(currentEl){
+        results.push(callback(currentEl));
+    });
+    return results;
+}
+
+function filter(collection, test) {
+    var results = [];
+    each(collection, function(currentEl){
+        if(test(currentEl)){
+            results.push(currentEl);
+        }
+    });
+    return results;
+}
+
+
+function reduce(collection, callback, initialVal){
+    var accumVal, i = 0;
+    if(arguments.length >= 3) {
+        accumVal = initialVal;
+    } else {
+        accumVal = collection[i];
+        i++;
+    }
+    while (i < collection.length){
+        accumVal = callback(accumVal, collection[i]);
+        i++;
+    }
+    return accumVal;
+}
+/////////////////
+//reduce
+////////////////
+function reduce(collection, callbackFunction, initialValue) {
+  var accumulator, index;
+
+  // check if initialValue exists
+  if (arguments.length >= 3) {
+    accumulator = initialValue;
+    index = 0;
+  } else {
+    accumulator = collection[0];
+    index = 1;
+  }
+
+  while (index < collection.length) {
+    accumulator = callbackFunction(accumulator, collection[index]);
+    index++;
+  }
+
+  return accumulator;
+}

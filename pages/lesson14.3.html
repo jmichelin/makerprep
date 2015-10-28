@@ -1,0 +1,68 @@
+<html>
+<head>
+  <title>HTML Document</title>
+</head>
+<body>
+<div id="everything">
+      <h1>A heading!</h1>
+      <p>Here's some text!</p>
+      <p>Here's a second set of text!</p>
+      <div class="holder">
+          <ul>
+              <li>List Item 1</li>
+              <li>List Item 2</li>
+              <li>List Item 3</li>
+          </ul>
+      </div>
+      <div class="holder">
+          <ol>
+              <li>List Item 4</li>
+              <li>List Item 5</li>
+              <li>List Item 6</li>
+          </ol>
+      </div>
+      <div id="change-me">This part needs to change!</div>
+      <div id="secret">We should hide this!</div>
+  </div>
+  <!-- include Jquery here -->
+  <script src="../js/jquery-1.11.2.min.js"></script>
+  <script>
+  // your code here!
+  $(function(){
+    $("h1").css("color", "blue");
+    $("body").css("background-color", "red");
+    $("#everything").css("font-size", "larger");
+    //$(".holder").css("color", "yellow");
+    $(".holder").css("border", "1px solid black");
+    $("ul li").css("font-weight", "bold");
+    $("h1").siblings("p").css("background-color", "green");
+    $('#secret').css("display", "none");
+    $('#secret').css("display", "block");
+    $("#change-me").text("some text");
+    $("#change-me").append("some more text");
+    $("#change-me").html("<p>some other text</p><p>some other text</p>");
+    $("#change-me").append("<p>some other text</p><p>some other text</p>");
+    $("li").html("<p>some other text</p><p>some other text</p>");
+    $("li").append("<p>some other text</p><p>some other text</p>");
+    $("#everything").append("<ol><li>some other text</li><li>some other text</li><li>some other text</li></ol>");
+  });
+
+  // Write an expression using jQuery that targets all h1 elements and makes their font-color blue
+  // ... that targets the body element and turns its background red
+  // ... that targets the element with the id "everything" and increases its font-size
+  // ... that targets all elements with the class "holder" and adds a black border
+  // ... that targets all li elements within ul elements and bold them
+  // ... that targets p elements coming immediately after an h1 element and makes it green (Hint: Look up how to select HTML tags that are siblings)
+  // ... that targets the element with the id of "secret" and changes its display property to 'none'
+  // ... now change #secret's display property back to block
+  // ... that targets the element with the id of "change-me" and changes its text to a new sentence
+  // ... that appends new text to the end of the sentence in #change-me
+  // ... that replaces #change-me's contents with two new paragraph tags with content included
+  // ... that appends a new paragraph to #change-me
+  // ... that targets the all li elements and changes their text to a new sentence
+  // ... that targets the all li elements and appends new text to all of them
+  // ... that targets the element with the id of "everything" and appends an ordered list with three list elements inside
+
+  </script>
+</body>
+</html>

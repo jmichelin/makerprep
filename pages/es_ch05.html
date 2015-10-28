@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Eloquent Javascript: Chapter 5 Notes</title>
+</head>
+<body>
+    <h1>Eloquent Javascript: Chapter 5 Notes</h1>
+    <pre>
+        Why does this return empty (assuming the acenstry.js file)?
+        var newOverNinety = ancestry.filter(function(person){
+            return person.die - person.born > 90;
+        }).map(function(person){ return person.name });
+        console.log(newOverNinety);
+
+        while this does not:
+
+        var overNinety = ancestry.filter(function(person) {
+            return person.died - person.born > 90;
+        });
+        console.log(map(overNinety, function(person) {
+            return person.name;
+        }));
+    </pre>
+
+
+
+
+
+
+
+
+
+    <script src="../js/ancestry.js"></script>
+    <script>
+    /////////////////////////
+    //          VARS      //
+    ///////////////////////
+    var ancestry = JSON.parse(ANCESTRY_FILE);
+    //console.log(ancestry.length); //39
+    /////////////////////////
+    //          VARS      //
+    ///////////////////////
+    this.x = 9;
+    var module = {
+        x: 81,
+        getX: function() { return this.x; }
+    };
+    var john = {
+        x: 42,
+        "notx": 43,
+        key: "duh",
+        getNotX: function(element) { alert(this.x); }
+    };
+
+    //console.log("81?", module.getX()); // 81
+    var notx = "notx";
+    //console.log("43?", john.getNotX(notx)); // 43
+    var retrieveX = module.getX;
+    retrieveX(); // 9, because in this case, "this" refers to the global object
+
+    // Create a new function with 'this' bound to module
+    //New programmers (like myself) might confuse the global var getX with module's property getX
+    var boundGetX = retrieveX.bind(module);
+    boundGetX(); // 81
+
+
+
+
+    //var ancestry = JSON.parse(ANCESTRY_FILE);
+    //console.log(ancestry.length); //39
+    function myfilter(array, test) {
+        var passed = [];
+        for (var i = 0; i < array.length; i++) {
+            if (test(array[i]))
+            passed.push(array[i]);
+        }
+        return passed;
+    }
+
+    var between1900and1925 = myfilter(ancestry, function(person) {
+        return person.born > 1900 && person.born < 1925;
+    });
+    //console.log(between1900and1925[1]);
+    // → [{name: "Philibert Haverbeke", …}, …]
+    //console.log(ancestry.filter(function(person) {
+    //    return person.father == "Carel Haverbeke";
+    //}));
+    // → [{name: "Carolus Haverbeke", …}]
+    function map(array, transform) {
+        var mapped = [];
+        for (var i = 0; i < array.length; i++)
+        mapped.push(transform(array[i]));
+        return mapped;
+    }
+
+    var overNinety = ancestry.filter(function(person) {
+        return person.died - person.born > 90;
+    });
+    //console.log(map(overNinety, function(person) {
+    //    return person.name;
+    //}));
+    // → ["Clara Aernoudts", "Emile Haverbeke",
+    //    "Maria Haverbeke"]
+    var newOverNinety = ancestry.filter(function(person){
+        return person.die - person.born > 90;
+    }).map(function(person){ return person.name });
+    //console.log(newOverNinety);
+    ////////////////////////
+    //                    //
+    ////////////////////////
+    /*
+        Because not all elements in the ancestry array produce useful data
+        (we can’t compute the age difference unless we know the birth date of the mother),
+         we will have to apply filter in some manner before calling average.
+         You could do it as a first pass, by defining a hasKnownMother function and filtering on that first.
+         Alternatively, you could start by calling map and in your mapping function return either the age
+         difference or null if no mother is known.
+        Then, you can call filter to remove the null elements before passing the array to average
+    */
+    function average(array) {
+        function plus(a, b) { return a + b; }
+        return array.reduce(plus) / array.length;
+    }
+    var byName = {};
+    ancestry.forEach(function(person) {
+        byName[person.name] = person;
+    });
+    //console.log(ancestry);
+    //console.log("byName \n", byName);
+
+
+    function hasKnownMother(person){
+        return byName[person].mother != null;
+    }
+    guess = [];
+    guess = ancestry.filter(hasKnownMother("Philibert Haverbeke"));
+    map(ancestry, function(person) {
+        var mother = "";
+        //console.log(person.name, " Has Known Mother:", hasKnownMother(byName[person.name]));
+        mother = byName[person.name].mother;
+        //console.log(mother, " is mother for ", person.name);
+        //console.log(byName[person.name].born.mother.born);
+    });
+    //console.log("guess  ", guess);
+    var mother ="" , daughter ="";
+    daughter = "Philibert Haverbeke";
+    mother = "Emma de Milliano";
+
+    // console.log("Has Known Mother:", hasKnownMother(byName[daughter]));
+    // console.log("Mother: ", byName[daughter].mother); //Emma de Milliano
+    // console.log("Born: ", byName[daughter].born); //1907
+    // mother = byName[daughter].mother;
+    // console.log(mother);
+    // console.log("Born: ", byName[mother].born); //1876
+    // console.log("Age at Birth: ", byName[daughter].born - byName[mother].born);
+
+    //byName.filter(hasKnownMother(person));
+
+    // → 31.2
+    // console.log(ancestry.filter(function(person) {
+    //   return person.born === 1832;
+    // }));
+
+    </script>
+</body>
+</html>

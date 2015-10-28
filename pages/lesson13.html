@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lesson 13 map, filter, reduce OH MY!</title>
+</head>
+<body>
+    <h1>Each(), Map(), Filter(), Reduce()</h1>
+    <a href="https://github.com/MakerPrepLA/makerprepla/tree/master/lessons/lesson13(each_map_filter_reduce)">github Lesson link</a>
+    <code>
+        <pre>
+            ///////////////
+            //each
+            ///////////////
+            function each(collection, callback) {
+                if (Array.isArray(collection)) {
+                    for (var i = 0; i < collection.length; i++) {
+                        callback(collection[i]);
+                    }
+                } else {
+                    for(var key in collection){
+                        callback(collection[key]);
+                    }
+                }
+            }
+
+            ///////////////
+            //map
+            ///////////////
+            function map(collection, callback) {
+                var results = [];
+                each(collection, function(currentEl) {
+                    results.push(callback(currentEl));
+                });
+
+                return results;
+            }
+            ///////////////
+            //filter
+            ///////////////
+            function filter(collection, predicate) {
+                var results = [];
+                each(collection, function(currentEl) {
+                    if (predicate(currentEl)) {
+                        results.push(currentEl);
+                    }
+                });
+                return results;
+            }
+            /////////////////
+            //reduce
+            ////////////////
+            function reduce(collection, callbackFunction, initialValue) {
+              var accumulator, index;
+
+              // check if initialValue exists
+              if (arguments.length >= 3) {
+                accumulator = initialValue;
+                index = 0;
+              } else {
+                accumulator = collection[0];
+                index = 1;
+              }
+
+              while (index < collection.length) {
+                accumulator = callbackFunction(accumulator, collection[index]);
+                index++;
+              }
+
+              return accumulator;
+            }
+        </pre>
+        <pre>
+            Exercise 3 Each()
+            Use your each function to iterate over myObj and log each value but with an octothorpe before it:
+
+            var myObj = {
+                name: "object",
+                shape: "squircle",
+                color: "coquelicot",
+                heightInCM: 20.4
+                exists: true
+                heightInCM: 20.4
+                exists: true
+            };
+            b. Use your each function to print all the values of mySea on a single line separated by a space.
+            var mySea = ["What's", "a", "pirate's", "favorite", "letter?"];
+            <strong>I Cant figure out how to print them on a single line.</strong>
+        </pre>
+        <pre>
+            Exercise 4 Map()
+            a. Use your map function to create a new array containing the square root of each element in numbersR.
+
+            var numbersR = [36, 81, 3481, 1681];
+            b. Use your map function to return an array with a 'Mr.', 'Ms.', or 'Mrs.' before the mouses name.
+
+            var mice = [
+            {name: "Longtail"},
+            {name: "Sharpteeth"},
+            {name: "Smellypee"},
+            {name: "Twinkle Fingers"}
+            ];
+        </pre>
+        <pre>
+            Exercise 5 Filter()
+
+            a. Christoph and Gabriel are starting a club but the only people who are invited are people with names longer than 6 characters.
+            Use your filter function to tell which people are allowed in their club.
+            var people = ["Monica", "Erica", "Rita", "Tina", "Sandra", "Mary", "Jessica"];
+
+            b. Tom and Neil got jealous that they couldn't get into Christoph and Gabriel's club so they decided
+            to start their own club but only let people in whose names (in ascii numbers) are less than 400.
+
+            Note: To translate a character to ascii: "A".charCodeAt(0); // 65
+            Note: To translate ascii number to character(s): String.fromCharCode(97); // a String.fromCharCode(74, 111, 121); // Joy
+
+            Use your your filter function to tell which people are allowed in their club.
+        </pre>
+        <pre>
+            reduce
+
+            function reduce(collection, callbackFunction, initialValue) {
+                var accumulator, index;
+
+                // check if initialValue exists
+                if (arguments.length >= 3) {
+                    accumulator = initialValue;
+                    index = 0;
+                } else {
+                    accumulator = collection[0];
+                    index = 1;
+                }
+
+                while (index < collection.length) {
+                    accumulator = callbackFunction(accumulator, collection[index]);
+                    index++;
+                }
+
+                return accumulator;
+            }
+            a. Use your reduce function to find the factorial of a number.
+
+            b. Zoe and Jane want to conduct a test to see who at MakerPrep has the fastest laptop processor. Use your reduce function to figure out which student has the fastest processor, but in the end. Extra credit: Display it in GHz instead of Hz.
+
+            var processorSpeedsInHZ = [
+            2000000000, 2600000000, 2300000000, 2500000000, 2200000000, 10
+            ];
+        </pre>
+    </code>
+    <script>
+    //////////////////
+    //exercise 6
+    //////////////////
+
+    //////////////////
+    //exercise 5
+    /////////////////
+    var people = ["Monica", "Erica", "Rita", "Tina", "Sandra", "Mary", "Jessica"];
+    //filter people over 6 characters
+    var coolPeople = filter(people, function(person){
+        return person.length > 6;
+    });
+
+
+    //
+    //
+    //
+    //
+    console.log(coolPeople);
+    ///
+    //
+    var people = ["Monica", "Erica", "Rita", "Tina", "Sandra", "Mary", "Jessica"];
+
+    var coolerPeople = filter(people, function(name) {
+        var asciiTotal = 0;
+        for (var i = 0; i < name.length; i++) {
+            asciiTotal += name.charCodeAt(i);
+        }
+        return asciiTotal <= 400;
+
+    });
+    //
+    var coolerPeople = filter(people, function(person){
+        personalValue = 0;
+        for (var i = 0; i < person.length; i++){
+            personalValue = personalValue + person[i].charCodeAt(0);
+            //console.log(personalValue);
+        }
+        return personalValue < 400;
+    });
+    console.log(coolerPeople);
+    //
+    //
+    //
+    console.log(coolerPeople);
+    //filter only those whose names in ascii are < 400
+    //char to ascii "A".charCodeAt(0); // 65
+    //ascii to string, String.fromCharCode(97);
+
+    //////////////////
+    //exercise 4
+    /////////////////
+    var numbersR = [36, 81, 3481, 1681];
+    var sqrtNumbers = map(numbersR, function(number){
+        return Math.sqrt(number);
+    });
+    console.log(sqrtNumbers);
+
+    var mice = [
+        {name: "Longtail"},
+        {name: "Sharpteeth"},
+        {name: "Smellypee"},
+        {name: "Twinkle Fingers"}
+    ];
+    var newMice = map(mice, function(mouse){
+        return {name: "Mr. "+mouse.name};
+    })
+
+    console.log(JSON.stringify(newMice, null, 4));
+    //////////////////
+    //exercise 3
+    /////////////////
+    // var myObj = {
+    //   name: "object",
+    //   shape: "squircle",
+    //   color: "coquelicot",
+    //   heightInCM: 20.4,
+    //   exists: true
+    // };
+    // each(myObj, function(currentEl){
+    //   console.log("#", currentEl);
+    // });
+    var mySea = ["What's", "a", "pirate's", "favorite", "letter?"];
+    var newPhrase = "";
+    each(mySea, function(currentEl){
+        newPhrase += (currentEl + " ");
+    });
+    console.log(newPhrase);
+    //////////////////
+    //reduce()
+    /////////////////
+    function reduce(collection, callback, initialVal) {
+        var accumVal;
+        each(collection, function(currentEl){
+            accumVal = callback(accumVal, currentEl);
+        });
+        return accumVal;
+    }
+    //////////////////
+    //filter()
+    /////////////////
+    function filter(collection, predicate) {
+        resultsArray = [];
+        each(collection, function(currentEl) {
+            if (predicate(currentEl)) {
+                resultsArray.push(currentEl);
+            }
+        });
+        return resultsArray;
+    }
+    //////////////////
+    //map()
+    /////////////////
+    function map(collection, callback) {
+        resultsArray = [];
+        each(collection, function(currentEl){
+            resultsArray.push(callback(currentEl));
+        });
+        return resultsArray;
+    }
+
+    //////////////////
+    //each()
+    /////////////////
+    function each(collection, callback) {
+        if(Array.isArray(collection)) { //use for loop
+            for (var i = 0; i < collection.length; i++) {
+                callback(collection[i]);
+            }
+        } else { // use for in
+            for (var key in collection) {
+                callback(collection[key]);
+            }
+        }
+    }
+    </script>
+</body>
+</html>
