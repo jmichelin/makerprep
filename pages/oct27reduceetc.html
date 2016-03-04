@@ -48,22 +48,9 @@ function reduce(collection, callback, initialVal){
 /////////////////
 //reduce
 ////////////////
-function reduce(collection, callbackFunction, initialValue) {
-  var accumulator, index;
-
-  // check if initialValue exists
-  if (arguments.length >= 3) {
-    accumulator = initialValue;
-    index = 0;
-  } else {
-    accumulator = collection[0];
-    index = 1;
-  }
-
-  while (index < collection.length) {
-    accumulator = callbackFunction(accumulator, collection[index]);
-    index++;
-  }
-
-  return accumulator;
+function reduce(collection, callback, initialVal){
+	each(collection, function(val){
+	startValue = callback(startValue, val);
+})
+return startValue;
 }
